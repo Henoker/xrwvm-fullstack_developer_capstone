@@ -1,0 +1,66 @@
+<html>
+<head>
+  <!-- Link the style sheet here -->
+  <link rel="stylesheet" href="/static/style.css">
+  <link rel="stylesheet" href="/static/bootstrap.min.css">
+  <style>
+    .card {
+        border-radius: 15px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .hero-image {
+        height: 200px;
+        background-image: url('/static/car_dealership.jpg');
+        background-size: cover;
+        background-position: center;
+        border-radius: 15px 15px 0 0;
+    }
+</style>
+</head>
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color:darkturquoise; height: 1in;">
+    <div class="container-fluid">
+      <h2 style="padding-right: 5%;">Dealerships</h2>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger;" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" style="font-size: larger;" href="/about">About Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" style="font-size: larger;" href="/contact">Contact Us</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div class="container my-5">
+    <div class="card">
+        <div class="hero-image"></div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-6 col-md-12">
+                    <h2>Contact Us</h2>
+                    <p>We're here to help you with any inquiries or support you may need. Feel free to reach out to us through the following channels:</p>
+                    <ul class="list-unstyled">
+                        <li><strong>Address:</strong> 1234 Auto Lane, Car City, CA 90210</li>
+                        <li><strong>Phone:</strong> (555) 123-4567</li>
+                        <li><strong>Email:</strong> info@bestcardealership.com</li>
+                        <li><strong>Working Hours:</strong> Mon-Fri: 9:00 AM - 7:00 PM, Sat: 10:00 AM - 6:00 PM, Sun: Closed</li>
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-12">
+                    <img src="/static/contactus.png" class="img-fluid rounded">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+   
+
+</html>
