@@ -54,7 +54,7 @@ app.get('/fetchReviews/dealer/:id', async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: 'Error fetching reviews by dealer ID' });
     }
-});
+  });
 
 // Express route to fetch all dealerships
 app.get('/fetchDealers', async (req, res) => {
@@ -86,7 +86,7 @@ app.get('/fetchDealer/:id', async (req, res) => {
     } catch (error) {
       res.status(500).json({ error: 'Error fetching dealers by ID' });
     }
-  });
+});
 
 //Express route to insert review
 app.post('/insert_review', express.raw({ type: '*/*' }), async (req, res) => {
