@@ -24,7 +24,8 @@ urlpatterns = [
          name='get_dealers_by_state'),
 
     # Path for dealer details view
-    path('dealer/<int:dealer_id>', views.get_dealer_details, name='dealer_details'),
+    path('dealer/<int:dealer_id>', views.get_dealer_details,
+         name='dealer_details'),
 
     # Path for dealer reviews
     path('reviews/dealer/<int:dealer_id>',
