@@ -6,6 +6,7 @@ import logging
 # Get an instance of a logger
 logger = logging.getLogger(__name__)
 
+# Load environment variables
 load_dotenv()
 
 backend_url = os.getenv("backend_url", default="http://localhost:3030")
@@ -14,50 +15,44 @@ sentiment_analyzer_url = os.getenv(
 )
 
 
-# def get_request(endpoint, **kwargs):
-# Add code for get requests to back end
 def get_request(endpoint, **kwargs):
+    """Send a GET request to the backend with optional parameters."""
     params = ""
     if kwargs:
-        for key, value in kwargs.items():
-            params = params + key + "=" + value + "&"
+        params = "&".join([f"{key}={value}" for key, value in kwargs.items()])
 
-    request_url = backend_url + endpoint + "?" + params
+    request_url = f"{backend_url}{endpoint}?{params}"
+    logger.info(f"GET from {request_url}")
 
-    print("GET from {} ".format(request_url))
     try:
-        # Call get method of requests library with URL and parameters
         response = requests.get(request_url)
         return response.json()
-    # except:
-    #     # If any error occurs
-    #     print("Network exception occurred")
     except Exception as err:
-        print(f"Unexpected {err=}, {type(err)=}")
-        print("Network exception occurred")
+        logger.error(f"Network exception occurred: {err}")
+        return None
 
 
-# def analyze_review_sentiments(text):
-# request_url = sentiment_analyzer_url+"analyze/"+text
-# Add code for retrieving sentiments
 def analyze_review_sentiments(text):
-    request_url = sentiment_analyzer_url + "analyze/" + text
+    """Analyze the sentiment of a given text."""
+    request_url = f"{sentiment_analyzer_url}analyze/{text}"
+    logger.info(f"Sentiment analysis request to {request_url}")
+
     try:
-        # Call get method of requests library with URL and parameters
         response = requests.get(request_url)
         return response.json()
-    except Exception as e:
-        print("Unexpected {err=}, {type(err)=}")
-        print(f"Network exception occurred: {e}")
+    except Exception as err:
+        logger.error(f"Network exception occurred: {err}")
+        return None
 
 
-# def post_review(data_dict):
-# Add code for posting review
 def post_review(data_dict):
-    request_url = backend_url + "/insert_review"
+    """Send a POST request to insert a review."""
+    request_url = f"{backend_url}/insert_review"
+    logger.info(f"POST to {request_url} with data {data_dict}")
+
     try:
         response = requests.post(request_url, json=data_dict)
-        print(response.json())
         return response.json()
-    except Exception as e:
-        print(f"Network exception occurred: {e}")
+    except Exception as err:
+        logger.error(f"Network exception occurred: {err}")
+        return None
