@@ -1,5 +1,4 @@
-/* eslint-env es6, node */
-/* eslint esversion: 6 */
+/*jshint esversion: 8 */
 
 const mongoose = require("mongoose");
 
